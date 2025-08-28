@@ -57,7 +57,7 @@ const Footnote = ListItem.extend<FootnoteOptions>({
     return [
       {
         tag: "li",
-        getAttrs(node) {
+        getAttrs(node: HTMLElement) {
           const id = node.getAttribute("data-id");
           if (id) {
             return {
@@ -70,7 +70,7 @@ const Footnote = ListItem.extend<FootnoteOptions>({
       },
     ];
   },
-  renderHTML({ HTMLAttributes }) {
+  renderHTML({ HTMLAttributes }: any) {
     return [
       "li",
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
@@ -82,7 +82,7 @@ const Footnote = ListItem.extend<FootnoteOptions>({
     return {
       focusFootnote:
         (id: string) =>
-        ({ editor, chain }) => {
+        ({ editor, chain }: any) => {
           const matchedFootnote = editor.$node("footnote", {
             "data-id": id,
           });
@@ -105,7 +105,7 @@ const Footnote = ListItem.extend<FootnoteOptions>({
   addKeyboardShortcuts() {
     return {
       // when inside a footnote, Mod-a should select only the footnote content
-      "Mod-a": ({ editor }) => {
+      "Mod-a": ({ editor }: any) => {
         try {
           const { selection } = editor.state;
           const { $from } = selection;
@@ -130,7 +130,7 @@ const Footnote = ListItem.extend<FootnoteOptions>({
         }
       },
       // when the user presses tab, adjust the text selection to be at the end of the next footnote
-      Tab: ({ editor }) => {
+      Tab: ({ editor }: any) => {
         try {
           const { selection } = editor.state;
           const pos = editor.$pos(selection.anchor);
@@ -164,7 +164,7 @@ const Footnote = ListItem.extend<FootnoteOptions>({
         }
       },
       // inverse of the tab command - place the text selection at the end of the previous footnote
-      "Shift-Tab": ({ editor }) => {
+      "Shift-Tab": ({ editor }: any) => {
         const { selection } = editor.state;
         const startPos = selection.$from.start(2);
         if (Number.isNaN(startPos)) return false;

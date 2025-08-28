@@ -4,3 +4,4 @@ node_modules
 /package/coverage
 tsconfig.node.tsbuildinfo
 tsconfig.app.tsbuildinfo
+/.yarn
