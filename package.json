@@ -1,5 +1,5 @@
 {
-  "name": "tiptap-footnotes",
+  "name": "@ditojs/tiptap-footnotes",
   "version": "3.0.0",
   "description": "A footnotes extension for Tiptap",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "prepack": "pnpm run build",
+    "prepack": "yarn run build",
     "test": "vitest --environment=jsdom"
   },
   "exports": {
